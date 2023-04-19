@@ -3,10 +3,15 @@
 
 describe('template spec', () => {
     it('passes', () => {
-        cy.viewport(1840, 1240)
-        cy.visit("http://www.webdriveruniversity.com/")
-
         
+        viewport(1840, 1240)
+        cy.visit("http://www.webdriveruniversity.com/") 
+    })
+
+    it.only('demo test', () => {
+
+        cy.demo("indu.aggarwal")
+
     })
 })
 
