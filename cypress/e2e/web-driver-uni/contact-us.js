@@ -10,5 +10,6 @@ describe('contact us form', () => {
 
         cy.url().should('include', '/Contact-Us/contactus')
     })
+
 })
 
