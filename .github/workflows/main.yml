@@ -16,7 +16,6 @@ jobs:
       - name: Run Cypress tests daily 🌎 
         uses: cypress-io/github-action@v5.3.1
         with:
-#           working-directory: cypress/e2e/**/*.js
           command: npm run all-tests
 
       - name: Upload cypress test artifacts 📦
@@ -32,3 +31,9 @@ jobs:
           name: cypress-videos
           path: cypress/videos
           retention-days: 30
+          
+      - name: Send GitHub Action trigger data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
