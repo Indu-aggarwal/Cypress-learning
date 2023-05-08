@@ -14,15 +14,21 @@ jobs:
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
       - name: Run Cypress tests daily 🌎 
-        uses: cypress-io/github-actions@v5
+        uses: cypress-io/github-actions@v5.1.0
         with:
-          working-directory: cypress/e2e
-          command: npm run all-tests
+          working-directory: cypress/e2e/**/*.js
+          # command: npm run all-tests
 
       - name: Upload cypress test artifacts 📦
         uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      # Test run video was always captured, so this action uses "always()" condition
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: cypress-test-artifacts
+          name: cypress-videos
           path: cypress/videos
           retention-days: 30
