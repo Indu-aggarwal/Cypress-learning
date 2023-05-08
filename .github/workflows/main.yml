@@ -14,12 +14,13 @@ jobs:
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
       - name: Run Cypress tests daily 🌎 
-        uses: cypress-io/github-actions@v5
+        uses: cypress-io/github-actions@v5.1.0
         with:
-          command: npm run cy:run:qa:regression
+          start: npm start
+          command: npx cypress run
 
       - name: Upload cypress test artifacts 📦
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cypress-test-artifacts
