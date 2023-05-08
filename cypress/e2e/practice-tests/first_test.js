@@ -18,7 +18,7 @@ describe('template spec', () => {
     //timeouts
     it.only('experiment timeouts', () => {
 
-        cy.visit("https://www.yodel.co.uk/",{timeout: 2000})
+        cy.visit("https://www.yodel.co.uk/")
         // .as('waitYodel')
         // cy.wait('@waitYodel')
         cy.get('#ccc-notify-accept').click()
