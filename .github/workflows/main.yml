@@ -16,6 +16,7 @@ jobs:
       - name: Run Cypress tests daily 🌎 
         uses: cypress-io/github-actions@v5
         with:
+          working-directory: cypress/e2e
           command: npm run all-tests
 
       - name: Upload cypress test artifacts 📦
