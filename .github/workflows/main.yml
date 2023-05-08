@@ -16,8 +16,7 @@ jobs:
       - name: Run Cypress tests daily 🌎 
         uses: ./
         with:
-          start: npm start
-          command: npx cypress run
+          command: npm run all-tests
 
       - name: Upload cypress test artifacts 📦
         uses: actions/upload-artifact@v3
